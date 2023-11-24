@@ -19,7 +19,7 @@ tipo = (
 )
 segmento = (('1','comunidad USM'),('2', 'Estudiantes'),('3', 'Profesor'),('4', 'jefe de carrera '),)
 
-class evento(models.Model):
+class Evento(models.Model):
     fecha_inicio = models.DateField()
     fecha_termino = models.DateField()
     titulo = models.CharField(max_length = 100)
