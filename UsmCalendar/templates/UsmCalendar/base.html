@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'UsmCalendar/css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'UsmCalendar/css/style.css' %}">
+    {% block styles %}
+    {% endblock styles %}
 </head>
 <body>
-    {% block content %}
+    {% block body %}
     
     {% endblock %}
+    <script src="{% static 'UsmCalendar/js/bootstrap.js' %}"></script>
 </body>
 </html>
