@@ -20,7 +20,7 @@ from UsmCalendar import views
 
 
 urlpatterns = [
-    path('', views.index, name='inicio'),
+    path('', views.index, name='index'),
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
 ]

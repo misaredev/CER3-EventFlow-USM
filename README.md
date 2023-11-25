@@ -1,5 +1,5 @@
 # CER3-EventFlow-USM
 
-**Integrantes:**
-Misael Tapia
-Juan Gonzalez
+**Integrantes:**\n
+- Misael Tapia\n
+- Juan Gonzalez

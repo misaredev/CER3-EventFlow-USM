@@ -1,0 +1,7 @@
+body{
+    font-family: 'Roboto Condensed';
+}
+
+.navbar .container-fluid{
+    margin: 0px 5vw 0px 5vw;
+}
