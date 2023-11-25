@@ -16,12 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-<<<<<<< HEAD
 from UsmCalendar import views
-
-=======
 from rest_framework.documentation import include_docs_urls  #importa documentacion automatica de api
->>>>>>> 9ccf081554efd47e5c4b96760bcb52ba389099ad
 
 
 urlpatterns = [
