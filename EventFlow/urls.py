@@ -17,12 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from UsmCalendar import views
-from rest_framework.documentation import include_docs_urls  #importa documentacion automatica de api
 
 
 urlpatterns = [
     path('', views.index, name='inicio'),
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-    path('doc/', include_docs_urls(title='Documentacion de API')), #mas que nada es para tenerlo bonito
 ]
