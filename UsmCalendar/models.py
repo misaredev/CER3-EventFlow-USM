@@ -1,7 +1,7 @@
 from django.db import models
 
 
-tipo = (
+TIPO = (
     ('V', 'Vacaciones'),
     ('F', 'Feriado'),
     ('S', 'Suspensión de actividades'),
@@ -28,7 +28,7 @@ class Evento(models.Model):
     fecha_termino = models.DateField()
     titulo = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=500)
-    tipo = models.CharField(max_length=20, choices=tipo, default="V")
+    tipo = models.CharField(max_length=20, choices=TIPO, default="V")
     segmentos = models.ManyToManyField('segmento')
 
     def __str__(self):

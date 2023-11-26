@@ -40,16 +40,18 @@
 <br><br>
 
 <section id="selectSegmentoTipo">
-    <form class="row" method="get">
+    <form class="row col" method="get">
         <div class="col-sm-2"></div>
         <div class="col-sm-4">
-            <select class="form-select mb-2" name="segmento" onchange="this.form.submit()">
-            <option>Segmento</option>
+            <select class="form-select mb-2" name="selectSegmento" onchange="this.form.submit()">
+            <option value="Todos">Segmento</option>
+            <!-- Realizar un for segmento in Segmentos -->
             </select>
         </div>
         <div class="col-sm-4">
-            <select class="form-select mb-2" name="tipo" onchange="this.form.submit()">
-            <option>Tipo</option>
+            <select class="form-select mb-2" name="selectTipo" onchange="this.form.submit()">
+            <option value="Todos">Tipo</option>
+            <!-- Realizar un for tipo in Tipos -->
             </select>
         </div>
         <div class="col-sm-2"></div>
@@ -63,21 +65,28 @@
             <h2>Actividades</h1>
         </div>
     </div>
-
-    <ul class="list-group list-group-horizontal justify-content-center">
-        <li class="list-group-item flex-fill">Hito</li>
-        <li class="list-group-item flex-fill">Fecha Inicio</li>
-        <li class="list-group-item flex-fill">Fecho Termino</li>
-        <li class="list-group-item flex-fill">Tipo</li>
-        <li class="list-group-item flex-fill">Segmento</li>
-    </ul>
-    <ul class="list-group list-group-horizontal justify-content-center">
-        <li class="list-group-item flex-fill">Lorem, ipsum dolor.</li>
-        <li class="list-group-item flex-fill">Lorem, ipsum.</li>
-        <li class="list-group-item flex-fill">Lorem, ipsum.</li>
-        <li class="list-group-item flex-fill">Lorem ipsum dolor sit.</li>
-        <li class="list-group-item flex-fill">Lorem, ipsum dolor.</li>
-    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Hito</th>
+                <th scope="col">Fecha Inicio</th>
+                <th scope="col">Fecha Término</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Segmento</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for evento in Eventos %}
+            <tr>
+                <td>{{ evento.titulo }}</th>
+                <td>{{ evento.fecha_inicio }}</td>
+                <td>{{ evento.fecha_termino }}</td>
+                <td>{{ evento.tipo }}</td>
+                <td>{{ evento.segmentos }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </section>
 
 <br><br>
