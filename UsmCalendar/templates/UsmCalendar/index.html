@@ -11,7 +11,6 @@
 
 {% block body %}
 <header>
-    {% comment %} {% include 'UsmCalendar/header' %} {% endcomment %}
     <nav class="navbar navbar-expand-lg" data-bs-theme="dark" style="background-color: #004B85;">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">
@@ -29,8 +28,61 @@
         </div>
     </nav>
 </header>
-<section>
+<section id="inicio">
     <img src="{% static 'UsmCalendar/img/fondo_vina.png' %}" alt="Fondo Calendario" width="100%">
+    <h1 class="text-center">Calendario de Actividades 2023</h1>
+</section>
+<br><br>
+
+<section id="selectSegmentoTipo">
+    <form class="row" method="get">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+            <select class="form-select mb-2" name="segmento" onchange="this.form.submit()">
+            <option>Segmento</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <select class="form-select mb-2" name="tipo" onchange="this.form.submit()">
+            <option>Tipo</option>
+            </select>
+        </div>
+        <div class="col-sm-2"></div>
+    </form>
+</section>
+<br>
+
+<section id="actividades" class="text-center">
+    <div class="card bg-dark text-white">
+        <div class="card-body">
+            <h2>Actividades</h1>
+        </div>
+    </div>
+
+    <ul class="list-group list-group-horizontal justify-content-center">
+        <li class="list-group-item flex-fill">Hito</li>
+        <li class="list-group-item flex-fill">Fecha Inicio</li>
+        <li class="list-group-item flex-fill">Fecho Termino</li>
+        <li class="list-group-item flex-fill">Tipo</li>
+        <li class="list-group-item flex-fill">Segmento</li>
+    </ul>
+    <ul class="list-group list-group-horizontal justify-content-center">
+        <li class="list-group-item flex-fill">Lorem, ipsum dolor.</li>
+        <li class="list-group-item flex-fill">Lorem, ipsum.</li>
+        <li class="list-group-item flex-fill">Lorem, ipsum.</li>
+        <li class="list-group-item flex-fill">Lorem ipsum dolor sit.</li>
+        <li class="list-group-item flex-fill">Lorem, ipsum dolor.</li>
+    </ul>
 </section>
 
+<br><br>
+<footer>
+    <div class="row" style="background-color: #004B85;">
+        <div class="col text-center text-white">
+            <br><br>
+            <h6>Desarrollado por <a href="https://github.com/Mis4ele">@Mis4ele</a> y <a href="https://github.com/DesiList753">@DesiList753</a></h6>
+            <br>
+        </div>
+    </div>
+</footer>
 {% endblock %}
