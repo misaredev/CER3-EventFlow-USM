@@ -23,3 +23,12 @@ body{
 #actividades{
     margin: 0 10% 0 10%;
 }
+
+footer a{
+    color: #FFF;
+    text-decoration: none;
+    transition-duration: 200ms;
+}
+footer a:hover{
+    color: #F7AE00;
+}

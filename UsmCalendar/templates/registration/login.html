@@ -1,0 +1,70 @@
+{% extends "UsmCalendar/base.html" %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block styles %}
+<style>
+    body{
+        background-color: #0a1e2f;
+    }
+    .carousel-item img{
+        max-height: 100vh;
+        margin: auto;
+    }
+    #login{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+    #login .card{
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: none;
+        width: 400px;
+        margin: auto;
+    }
+</style>
+{% endblock styles %}
+
+{% block body %}
+<div class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'UsmCalendar/img/background/fondo_vina.png' %}" class="d-block" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'UsmCalendar/img/background/fondo_concepcion.png' %}" class="d-block" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'UsmCalendar/img/background/fondo_sanjoaquin.png' %}" class="d-block" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'UsmCalendar/img/background/fondo_valparaiso.png' %}" class="d-block" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'UsmCalendar/img/background/fondo_vitacura.png' %}" class="d-block" alt="...">
+        </div>
+    </div>
+</div>
+<div id="login" class="container">
+    <div class="row col card">
+        <div class="card-body text-white">
+            <h2 class="text-center">Iniciar sesion</h2>
+            <hr><br>
+            <form action="" method="post" class="text-center">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br>
+                <a class="btn btn-secondary" href="{% url 'index' %}" role="button">Volver a inicio</a>
+                <button type="submit" class="btn btn-success">Iniciar sesion</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
