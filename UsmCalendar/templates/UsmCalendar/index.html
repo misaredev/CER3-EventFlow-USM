@@ -103,7 +103,12 @@
                 <td>{{ evento.fecha_inicio }}</td>
                 <td>{{ evento.fecha_termino }}</td>
                 <td>{{ evento.tipo }}</td>
-                <td>{{ evento.segmentos }}</td>
+                <td>
+                    {% for segmento in evento.segmentos.all %}
+                        {{ segmento.nombre }}
+                        {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
