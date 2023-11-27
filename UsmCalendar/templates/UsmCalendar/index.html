@@ -38,28 +38,30 @@
     <h1 class="text-center">Calendario de Actividades 2023</h1>
 </section>
 <br><br>
+
+<section id="proxEventos">
 {% if user.is_authenticated %}
     {% for group in user.groups.all %}
         <h2>Próximos Eventos {{ group.name }}</h2>
         <br>
-        <div class="row">
             {% for evento in Eventos %}
-                {% if evento.segmentos == group.name %}
-                    <div class="card bg-dark text-white">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ evento.fecha_inicio }}</h3>
-                            <h4 class="card-subtitle mb-2 text-body-secondary">{{ evento.titulo }}</h4>
-                            <p class="card-text">{{ evento.descripcion }}</p>
-                            <p>{{ evento.tipo }}</p>
+                {% for segmento in evento.segmentos.all %}
+                    {% if group.name == segmento.nombre %}
+                        <div class="card bg-dark text-white">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ evento.fecha_inicio }}</h3>
+                                <h4 class="card-subtitle mb-2 text-body-secondary">{{ evento.titulo }}</h4>
+                                <p class="card-text">{{ evento.descripcion }}</p>
+                                <p>{{ evento.tipo }}</p>
+                            </div>
                         </div>
-                    </div>
-                {% endif %}
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
-        </div>
         <br><br>
     {% endfor %}
 {% endif %}
-
+</section>
 <section id="selectSegmentoTipo">
     <form class="row col" method="get">
         <div class="col-sm-2"></div>
