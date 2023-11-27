@@ -8,5 +8,6 @@ evento_router.register(r'evento', EventoViewSet, basename='evento')
 
 urlpatterns = [
     path('', include(evento_router.urls)),
-    path('calendario/', EventoViewSet.as_view({'get': 'list'}), name='calendario-list'),
+    #vista para 
+
 ]
