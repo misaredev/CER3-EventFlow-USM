@@ -35,7 +35,7 @@
 </header>
 <section id="inicio">
     <img src="{% static 'UsmCalendar/img/fondo_vina.png' %}" alt="Fondo Calendario" width="100%">
-    <h1 class="text-center">Calendario de Actividades 2023</h1>
+    <h1 class="text-center">Calendario de Actividades {{ año }}</h1>
 </section>
 <br><br>
 
@@ -54,7 +54,7 @@
                             <h3 class="card-title">{{ evento.fecha_inicio }}</h3>
                             <h4 class="card-subtitle mb-2">{{ evento.titulo }}</h4>
                             <p class="card-text">{{ evento.descripcion }}</p>
-                            <p>{{ evento.tipo }}</p>
+                            <p>{% for tipo in Tipos %}{% if tipo.id == evento.tipo %}{{ tipo.nombre }}{% endif %}{% endfor %}</p>
                         </div>
                     </div>
                 {% endfor %}
@@ -71,8 +71,7 @@
         <div class="col-sm-2"></div>
         <div class="col-sm-4">
             <select class="form-select mb-2" name="selectSegmento" onchange="this.form.submit()">
-                <option value="Todos" {% if selectSegmento == "Todos" %}selected{% endif %}>Segmento</option>
-                <!-- Realizar un for segmento in Segmentos -->
+                <option value="Todos" {% if selectSegmento == "Todos" %}selected{% endif %}>Seleccionar segmento</option>
                 {% for segmento in Segmentos %}
                 <option value="{{ segmento }}" {% if selectSegmento == segmento.nombre %}selected{% endif %}>{{ segmento }}</option>
                 {% endfor %}
@@ -80,10 +79,9 @@
         </div>
         <div class="col-sm-4">
             <select class="form-select mb-2" name="selectTipo" onchange="this.form.submit()">
-            <option value="Todos">Tipo</option>
-            <!-- Realizar un for tipo in Tipos -->
+            <option value="Todos" {% if selectTipo == tipo.id %}selected{% endif %}>Seleccionar tipo</option>
             {% for tipo in Tipos %}
-            <option value="{{ tipo.id }}" {% if selectTipo == tipo.id %}selected{% endif %}>{{ tipo.nombre }}</option>
+            <option value="{{ tipo.id }}" {% if selectTipo == tipo.id %}selected{% endif %}>{{ tipo.id }} - {{ tipo.nombre }}</option>
             {% endfor %}
             </select>
         </div>

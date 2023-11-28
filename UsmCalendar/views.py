@@ -43,6 +43,7 @@ def index(request):
 
     data = {
         "title": title,
+        "año": timezone.now().year,
         "Eventos": Eventos,
         "Segmentos": Segmento.objects.all(),
         "Tipos": tipos,
