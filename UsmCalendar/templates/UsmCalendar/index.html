@@ -42,23 +42,27 @@
 <section id="proxEventos">
 {% if user.is_authenticated %}
     {% for group in user.groups.all %}
-        <h2>Próximos Eventos {{ group.name }}</h2>
-        <br>
-            {% for evento in Eventos %}
-                {% for segmento in evento.segmentos.all %}
-                    {% if group.name == segmento.nombre %}
-                        <div class="card bg-dark text-white">
-                            <div class="card-body">
-                                <h3 class="card-title">{{ evento.fecha_inicio }}</h3>
-                                <h4 class="card-subtitle mb-2 text-body-secondary">{{ evento.titulo }}</h4>
-                                <p class="card-text">{{ evento.descripcion }}</p>
-                                <p>{{ evento.tipo }}</p>
-                            </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h2>Próximos Eventos {{ group.name }}</h2>
+                <br>
+                <div class="row justify-content-center">
+                {% for evento in proxEventos %}
+                    <div class="card bg-dark text-white col-sm" style="width: 18rem;">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ evento.fecha_inicio }}</h3>
+                            <h4 class="card-subtitle mb-2">{{ evento.titulo }}</h4>
+                            <p class="card-text">{{ evento.descripcion }}</p>
+                            <p>{{ evento.tipo }}</p>
                         </div>
-                    {% endif %}
+                    </div>
                 {% endfor %}
-            {% endfor %}
-        <br><br>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <br><hr><br>
     {% endfor %}
 {% endif %}
 </section>

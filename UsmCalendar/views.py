@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Evento, Segmento, tipos
 from django.utils import timezone
+from django.contrib.auth.models import User, Group
 
 # Create your views here.
 
@@ -49,5 +50,16 @@ def index(request):
         "selectTipo": tipo,
         "EventosSelected": EventosSelected,
     }
+
+    # Proximos eventos
+    for group in request.user.groups.all():
+        eventos = []
+        for evento in Eventos:
+            for evento_segmento in evento.segmentos.all():
+                if str(evento_segmento) == str(group):
+                    eventos.append(evento)
+                    break
+        data["proxEventos"] = eventos[:3]
+        break
 
     return render(request, 'UsmCalendar/index.html', data)
