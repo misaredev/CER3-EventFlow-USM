@@ -8,6 +8,4 @@ evento_router.register(r'evento', EventoViewSet, basename='evento')
 
 urlpatterns = [
     path('', include(evento_router.urls)),
-    #vista para 
-
 ]
