@@ -1,10 +1,8 @@
 from rest_framework import viewsets, permissions
 from .serializer import EventoSerializer
-from rest_framework.response import Response
-from UsmCalendar.models import Evento, Segmento
+from UsmCalendar.models import Evento
 
 # Create your views here.
-
 
 class EventoAdminViewSet(viewsets.ModelViewSet):
     serializer_class = EventoSerializer
@@ -15,7 +13,6 @@ class EventoAdminViewSet(viewsets.ModelViewSet):
         fecha_inicio = self.request.query_params.get('fecha_inicio', None)
         tipo = self.request.query_params.get('tipo', None)
         segmento = self.request.query_params.get('segmento', None)
-        
         #filtro por año, tipo y segmento
         if fecha_inicio is not None:
             queryset = queryset.filter(fecha_inicio__year=fecha_inicio)
