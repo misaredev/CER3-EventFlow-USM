@@ -42,6 +42,7 @@
 <section id="proxEventos">
 {% if user.is_authenticated %}
     {% for group in user.groups.all %}
+    {% if group.name == "Profesor" or group.name == "Jefe de Carrera" %}
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
@@ -63,6 +64,7 @@
             <div class="col-md-2"></div>
         </div>
         <br><hr><br>
+    {% endif %}
     {% endfor %}
 {% endif %}
 </section>
