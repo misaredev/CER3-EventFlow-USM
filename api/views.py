@@ -24,12 +24,18 @@ class EventoAdminViewSet(viewsets.ModelViewSet):
         if segmento is not None:
             queryset = queryset.filter(segmentos__nombre=segmento) #no funciona el filtro (aun)
         return queryset
+    
     def perform_create(self, serializer):
-        print("Request data:", self.request.data)
         tipo = self.request.data.get('tipo', 'V')
-        print("Tipo:", tipo)
-        segmento_nombres = self.request.data.get('segmentos', [])
-        print("Segmentos:", segmento_nombres)
+        evento = Evento.objects.create(
+            tipo=tipo,
+            fecha_inicio=self.request.data['fecha_inicio'],
+            fecha_termino=self.request.data['fecha_termino'],
+            titulo=self.request.data['titulo'],
+            descripcion=self.request.data['descripcion']
+        )
+        #no pude lograr solicitar los segmentos al crear desde la api
+        print("Evento creado exitosamente:", serializer.data)
     
 class EventoGetViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = EventoSerializer
