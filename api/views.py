@@ -1,7 +1,6 @@
 from rest_framework import viewsets, permissions
 from .serializer import EventoSerializer
 from UsmCalendar.models import Evento
-from .admin import Permisos_seguro_e_inseguro
 
 # Create your views here.
 
