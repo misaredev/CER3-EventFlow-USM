@@ -1,6 +1,5 @@
 from django.db import models
 
-
 TIPO = (
     ('V', 'Vacaciones'),
     ('F', 'Feriado'),
