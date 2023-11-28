@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Evento, Segmento
+from .models import Evento, Segmento, tipos
 from django.utils import timezone
 
 # Create your views here.
@@ -44,8 +44,7 @@ def index(request):
         "title": title,
         "Eventos": Eventos,
         "Segmentos": Segmento.objects.all(),
-        "strTipos": Evento.getAllTipos('str'),
-        "Tipos": Evento.getAllTipos(''),
+        "Tipos": tipos,
         "selectSegmento": segmento,
         "selectTipo": tipo,
         "EventosSelected": EventosSelected,

@@ -70,7 +70,7 @@
                 <option value="Todos" {% if selectSegmento == "Todos" %}selected{% endif %}>Segmento</option>
                 <!-- Realizar un for segmento in Segmentos -->
                 {% for segmento in Segmentos %}
-                <option value="{{ segmento }}" {% if selectSegmento == segmento %}selected{% endif %}>{{ segmento }}</option>
+                <option value="{{ segmento }}" {% if selectSegmento == segmento.nombre %}selected{% endif %}>{{ segmento }}</option>
                 {% endfor %}
             </select>
         </div>
@@ -78,8 +78,8 @@
             <select class="form-select mb-2" name="selectTipo" onchange="this.form.submit()">
             <option value="Todos">Tipo</option>
             <!-- Realizar un for tipo in Tipos -->
-            {% for tipo in strTipos %}
-            <option value="{{ tipo }}" {% if selectTipo == tipo %}selected{% endif %}>{{ tipo }}</option>
+            {% for tipo in Tipos %}
+            <option value="{{ tipo.id }}" {% if selectTipo == tipo.id %}selected{% endif %}>{{ tipo.nombre }}</option>
             {% endfor %}
             </select>
         </div>

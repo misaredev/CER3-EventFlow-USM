@@ -33,11 +33,12 @@ class Evento(models.Model):
     def __str__(self):
         return self.titulo
     
-    def getAllTipos(type):
-        tipos = []
-        for tipo in TIPO:
-            if type == 'str':
-                tipos.append(tipo[0] + " - " + tipo[1])
-            else:
-                tipos.append(tipo[0])
-        return tipos
+# Probablemente se pida que esta clase sea de tipo model, pero a estas alturas me parece que es lo mejor
+class Tipo():
+    def __init__(self, id, nombre):
+        self.id = id
+        self.nombre = nombre
+
+tipos = []
+for tipo in TIPO:
+    tipos.append(Tipo(tipo[0], tipo[1]))
